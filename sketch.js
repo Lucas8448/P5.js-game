@@ -9,7 +9,7 @@ function setup() {
 function grassBlock(x, y, z) {
     push();
     translate(x, y, z);
-    fill(0, 150, 0);
+    fill(0, 100, 0);
     box(20, 20, 20);
     pop();
 };
