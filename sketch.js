@@ -1,7 +1,5 @@
-
-
 function setup() {
-    createCanvas(1280, 640, WEBGL);
+    createCanvas(2540, 1280, WEBGL);
     background(0);
     //create camera
 
@@ -11,7 +9,7 @@ function setup() {
 function grassBlock(x, y, z) {
     push();
     translate(x, y, z);
-    fill(0,150,0);
+    fill(0, 150, 0);
     box(20, 20, 20);
     pop();
 };
@@ -44,25 +42,24 @@ function waterBlock(x, y, z) {
 };
 
 
-
 function draw() {
     background(0);
     orbitControl()
     //create 3d terrain using noise()
     for (var x = -100; x < 100; x++) {
-        for (var z = -400; z  < 20; z++) {
+        for (var z = -100; z < 20; z++) {
             var y = noise(x * 0.015 + 10000, z * 0.015 + 10000) * 40;
-            var y1 = noise(x * 0.1 + 10000000, z * 1+ 1000000);
+            var y1 = noise(x * 0.1 + 10000000, z * 1 + 1000000);
             y = y + y1
             if (y < 10) {
-                strokeWeight(2)
+                strokeWeight(1)
                 stoneBlock(x * 20, Math.round(y) * 20 + 40, z * 20);
             } else if (y < 20) {
-                strokeWeight(2)
+                strokeWeight(1)
                 grassBlock(x * 20, Math.round(y) * 20 + 40, z * 20);
             } else {
                 strokeWeight(0)
-                waterBlock(x * 20, 20 * 20 + 40, z * 20);
+                waterBlock(x * 20, 21 * 20 + 40, z * 20);
             }
         }
     }
