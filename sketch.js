@@ -50,12 +50,12 @@ function draw() {
     orbitControl()
     //create 3d terrain using noise()
     for (var x = -100; x < 100; x++) {
-        for (var z = -100; z  < 100; z++) {
+        for (var z = -400; z  < 20; z++) {
             var y = noise(x * 0.015 + 10000, z * 0.015 + 10000) * 40;
             var y1 = noise(x * 0.1 + 10000000, z * 1+ 1000000);
             y = y + y1
             if (y < 10) {
-                strokeWeight(4)
+                strokeWeight(2)
                 stoneBlock(x * 20, Math.round(y) * 20 + 40, z * 20);
             } else if (y < 20) {
                 strokeWeight(2)
